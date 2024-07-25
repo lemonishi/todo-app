@@ -17,6 +17,9 @@ const formSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
+  duedate: z.string().min(2, {
+    message: "test",
+  }),
 });
 
 function TodoForm() {
@@ -25,6 +28,7 @@ function TodoForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: "",
+      duedate: "",
     },
   });
 
@@ -35,10 +39,7 @@ function TodoForm() {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="title"
@@ -52,9 +53,21 @@ function TodoForm() {
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                Title of the thing you want to do.
-              </FormDescription>
+              <FormDescription>Title of the task.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="duedate"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Due Date</FormLabel>
+              <FormControl>
+                <Input placeholder="test" autoComplete="false" {...field} />
+              </FormControl>
+              <FormDescription>When is this task due?</FormDescription>
               <FormMessage />
             </FormItem>
           )}
