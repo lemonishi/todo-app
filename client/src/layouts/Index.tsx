@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar.tsx";
-import { ThemeProvider } from "@/components/ModeToggle/ThemeProvider.tsx";
+import { ThemeProvider } from "@/components/modetoggle/ThemeProvider.tsx";
 
 function Index() {
   return (

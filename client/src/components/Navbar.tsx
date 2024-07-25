@@ -1,12 +1,15 @@
-import ModeToggle from "./ModeToggle/ModeToggle";
+import AddTodo from "./AddTodo";
+import ModeToggle from "./modetoggle/ModeToggle";
 
 function Navbar() {
   return (
-    <header className="flex justify-between items-center max-w-[64rem] border-b border-border m-auto p-2">
+    <header className="flex justify-between items-center max-w-[64rem] border-b border-border m-auto p-3">
       <div>
         <ModeToggle />
       </div>
-      <nav>Items</nav>
+      <nav>
+        <AddTodo />
+      </nav>
     </header>
   );
 }
